@@ -152,7 +152,7 @@ export const CheckoutPage = () => {
 
               <div className="flex items-start justify-between mb-3 pt-2">
                 <div>
-                  <h3 className="font-bold text-foreground text-lg">Método GGSELL Completo</h3>
+                  <h3 className="font-bold text-foreground text-lg">Método GGMAX Completo</h3>
                   <p className="text-sm text-muted-foreground">Acesso vitalício + suporte</p>
                 </div>
                 <div className="text-right">

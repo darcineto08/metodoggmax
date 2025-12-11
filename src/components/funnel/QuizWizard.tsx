@@ -36,7 +36,7 @@ const questions = [
   {
     id: "triedBefore",
     type: "radio",
-    question: "Você já tentou vender uma conta de jogo antes?",
+    question: "Você já tentou vender uma conta ou item de jogo por conta própria antes?",
     options: [
       { value: "sim", label: "Sim, já vendi" },
       { value: "tentei", label: "Tentei, mas não consegui" },

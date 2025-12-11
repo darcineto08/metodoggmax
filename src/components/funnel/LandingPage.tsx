@@ -39,10 +39,10 @@ export const LandingPage = ({ onStart }: LandingPageProps) => {
             transition={{ duration: 0.5, delay: 0.1 }}
           >
             <span className="inline-block px-3 py-1 bg-success/10 text-success text-sm font-medium rounded-full mb-4">
-              Método Exclusivo 2024
+              Método Exclusivo 2026
             </span>
-            <h1 className="text-3xl md:text-4xl font-extrabold text-foreground leading-tight">
-              Transforme Isso em Sua{" "}
+            <h1 className="text-2xl sm:text-3xl md:text-4xl font-extrabold text-foreground leading-tight">
+              Domine a GG Max e Transforme Isso em Sua{" "}
               <span className="text-primary">Nova Fonte de Renda</span>
             </h1>
           </motion.div>
@@ -51,9 +51,9 @@ export const LandingPage = ({ onStart }: LandingPageProps) => {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: 0.2 }}
-            className="text-muted-foreground text-lg"
+            className="text-muted-foreground text-base sm:text-lg px-2"
           >
-            Descubra o <strong>Método GGSELL</strong> e aprenda a vender contas de jogos de forma profissional, com fornecedores validados e suporte completo.
+            Descubra o <strong>Método russo</strong> e aprenda a vender na GGMAX de forma profissional, com fornecedores validados e suporte completo.
           </motion.p>
 
           {/* Features */}
@@ -87,9 +87,9 @@ export const LandingPage = ({ onStart }: LandingPageProps) => {
             <Button
               onClick={onStart}
               size="lg"
-              className="w-full text-lg font-bold py-6 rounded-xl shadow-glow animate-pulse hover:animate-none transition-all"
+              className="w-full text-sm sm:text-lg font-bold py-6 rounded-xl shadow-glow animate-pulse hover:animate-none transition-all"
             >
-              QUERO ACESSAR O MÉTODO GGSELL
+              QUERO ACESSAR O MÉTODO GGMAX
             </Button>
             <p className="text-xs text-muted-foreground mt-3">
               ⚡ Responda o quiz e ganhe até 70% de desconto
