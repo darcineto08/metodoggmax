@@ -1,15 +1,26 @@
 import { motion } from "framer-motion";
-import { Gamepad2, TrendingUp, Zap, Shield } from "lucide-react";
+import { Gamepad2, TrendingUp, Zap, Shield, Search, Bell, ShoppingCart, MoreHorizontal } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import logo from "@/assets/logo.png";
+
 interface LandingPageProps {
   onStart: () => void;
 }
+
 export const LandingPage = ({
   onStart
 }: LandingPageProps) => {
-  return <div className="min-h-screen flex flex-col">
+  return <div className="min-h-screen flex flex-col bg-background">
       {/* Header */}
-      
+      <header className="bg-background py-3 px-4 flex items-center justify-between border-b border-border/30">
+        <img src={logo} alt="GGMAX" className="h-8" />
+        <div className="flex items-center gap-3">
+          <Search className="w-5 h-5 text-primary" />
+          <Bell className="w-5 h-5 text-primary" />
+          <ShoppingCart className="w-5 h-5 text-primary" />
+          <MoreHorizontal className="w-5 h-5 text-primary" />
+        </div>
+      </header>
 
       {/* Hero */}
       <main className="flex-1 flex flex-col items-center justify-center px-4 py-8">
@@ -40,7 +51,7 @@ export const LandingPage = ({
               Método Exclusivo 2026
             </span>
             <h1 className="text-2xl sm:text-3xl md:text-4xl font-extrabold text-foreground leading-tight">
-              Domine a GG Max e Transforme Isso em Sua{" "}
+              Domine a GGMAX e Transforme Isso em Sua{" "}
               <span className="text-primary">Nova Fonte de Renda</span>
             </h1>
           </motion.div>
