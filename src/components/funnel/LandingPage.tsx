@@ -2,18 +2,16 @@ import { motion } from "framer-motion";
 import { Gamepad2, TrendingUp, Zap, Shield, Search, Bell, ShoppingCart, MoreHorizontal } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import logo from "@/assets/logo.png";
-
 interface LandingPageProps {
   onStart: () => void;
 }
-
 export const LandingPage = ({
   onStart
 }: LandingPageProps) => {
   return <div className="min-h-screen flex flex-col bg-background">
       {/* Header */}
       <header className="bg-background py-3 px-4 flex items-center justify-between border-b border-border/30">
-        <img src={logo} alt="GGMAX" className="h-8" />
+        <img alt="GGMAX" className="h-8" src="/lovable-uploads/04f50744-6565-42ec-929e-2dbe15c27232.png" />
         <div className="flex items-center gap-3">
           <Search className="w-5 h-5 text-primary" />
           <Bell className="w-5 h-5 text-primary" />
