@@ -7,16 +7,16 @@ interface SalesPageProps {
 }
 const testimonials = [{
   name: "Lucas M.",
-  message: "Fiz R$ 2.800 na primeira semana! Os fornecedores são incríveis.",
-  revenue: "R$ 8.400/mês"
+  message: "Fiz R$ 870 na primeira semana! Os fornecedores são incríveis.",
+  revenue: "R$ 2.400/mês"
 }, {
   name: "Ana Paula",
   message: "Nunca pensei que vender contas fosse tão lucrativo. Obrigada GGMAX!",
-  revenue: "R$ 5.200/mês"
+  revenue: "R$ 1.780/mês"
 }, {
   name: "Pedro H.",
   message: "Saí do CLT graças ao método. Agora trabalho do celular.",
-  revenue: "R$ 12.000/mês"
+  revenue: "R$ 3.550/mês"
 }];
 const benefits = [{
   icon: Users,
