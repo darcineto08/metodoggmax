@@ -215,7 +215,7 @@ export const SalesPage = ({
               <h3 className="text-xl font-bold mb-2">
                 Missão Cumprida!
               </h3>
-              <p className="text-primary-foreground/80 mb-4">
+              <p className="mb-4 text-primary-foreground font-semibold">
                 Você acumulou <strong>{points} GG Points</strong> e desbloqueou um desconto exclusivo!
               </p>
               <div className="bg-primary-foreground/10 rounded-xl p-4 mb-4">
