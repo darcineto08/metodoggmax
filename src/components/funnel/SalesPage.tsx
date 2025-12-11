@@ -66,7 +66,7 @@ export const SalesPage = ({ points, onContinue }: SalesPageProps) => {
               </span>
               <h1 className="text-2xl md:text-3xl font-extrabold text-foreground leading-tight">
                 Você tem o perfil ideal para o{" "}
-                <span className="text-primary">Método GGSELL</span>
+                <span className="text-primary">Método GGMAX</span>
               </h1>
               <p className="text-muted-foreground">
                 O método que já transformou +2.847 pessoas em vendedores profissionais de contas de jogos.
@@ -85,7 +85,7 @@ export const SalesPage = ({ points, onContinue }: SalesPageProps) => {
               className="bg-card rounded-2xl p-6 shadow-soft space-y-4"
             >
               <h2 className="text-xl font-bold text-foreground">
-                O que é o Método GGSELL?
+                O que é o Método GGMAX?
               </h2>
               <p className="text-muted-foreground">
                 É o <strong className="text-foreground">Método Russo</strong> adaptado para o Brasil. Uma estratégia comprovada de compra e venda de contas de jogos que permite faturar de R$ 3.000 a R$ 15.000 por mês trabalhando apenas pelo celular.
