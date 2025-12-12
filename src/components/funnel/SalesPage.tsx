@@ -1,4 +1,4 @@
-import { motion } from "framer-motion";
+import { motion, AnimatePresence } from "framer-motion";
 import { Star, Check, Users, Shield, Zap, Gift, ChevronLeft, ChevronRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { useState, useEffect } from "react";
@@ -179,16 +179,21 @@ export const SalesPage = ({
               className="relative bg-card rounded-2xl p-4 shadow-soft"
             >
               <div className="relative overflow-hidden rounded-xl">
-                <motion.img
-                  key={currentImage}
-                  src={resultImages[currentImage]}
-                  alt={`Resultado de aluno ${currentImage + 1}`}
-                  className="w-full h-auto rounded-xl"
-                  initial={{ opacity: 0, x: 100 }}
-                  animate={{ opacity: 1, x: 0 }}
-                  exit={{ opacity: 0, x: -100 }}
-                  transition={{ duration: 0.3 }}
-                />
+                <AnimatePresence mode="wait">
+                  <motion.img
+                    key={currentImage}
+                    src={resultImages[currentImage]}
+                    alt={`Resultado de aluno ${currentImage + 1}`}
+                    className="w-full h-auto rounded-xl"
+                    initial={{ opacity: 0, scale: 0.95 }}
+                    animate={{ opacity: 1, scale: 1 }}
+                    exit={{ opacity: 0, scale: 1.05 }}
+                    transition={{ 
+                      duration: 0.5, 
+                      ease: [0.4, 0, 0.2, 1]
+                    }}
+                  />
+                </AnimatePresence>
               </div>
               
               {/* Navigation */}
