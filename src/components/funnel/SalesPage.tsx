@@ -1,23 +1,19 @@
 import { motion } from "framer-motion";
-import { Star, Check, MessageCircle, TrendingUp, Users, Shield, Zap, Gift } from "lucide-react";
+import { Star, Check, Users, Shield, Zap, Gift, ChevronLeft, ChevronRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { useState } from "react";
+import resultado1 from "@/assets/resultado1.png";
+import resultado2 from "@/assets/resultado2.png";
+import resultado3 from "@/assets/resultado3.png";
+import resultado4 from "@/assets/resultado4.png";
+
 interface SalesPageProps {
   points: number;
   onContinue: () => void;
 }
-const testimonials = [{
-  name: "Lucas M.",
-  message: "Fiz R$ 870 na primeira semana! Os fornecedores são incríveis.",
-  revenue: "R$ 2.400/mês"
-}, {
-  name: "Ana Paula",
-  message: "Nunca pensei que vender contas fosse tão lucrativo. Obrigada GGMAX!",
-  revenue: "R$ 1.780/mês"
-}, {
-  name: "Pedro H.",
-  message: "Saí do CLT graças ao método. Agora trabalho do celular.",
-  revenue: "R$ 3.550/mês"
-}];
+
+const resultImages = [resultado1, resultado2, resultado3, resultado4];
+
 const benefits = [{
   icon: Users,
   text: "Acesso a +50 fornecedores validados"
@@ -25,19 +21,28 @@ const benefits = [{
   icon: Shield,
   text: "Contas 100% seguras e verificadas"
 }, {
-  icon: TrendingUp,
-  text: "Margem de lucro de 200% a 500%"
-}, {
   icon: Zap,
-  text: "Suporte 24h via WhatsApp"
+  text: "Montagem de ofertas, preços e títulos que convertem"
 }, {
   icon: Gift,
-  text: "Bônus: Scripts de venda prontos"
+  text: "Técnicas de bundles, upsells e aumento de ticket médio"
+}, {
+  icon: Star,
+  text: "Bônus: 10 produtos campeões de vendas"
 }];
 export const SalesPage = ({
   points,
   onContinue
 }: SalesPageProps) => {
+  const [currentImage, setCurrentImage] = useState(0);
+
+  const nextImage = () => {
+    setCurrentImage((prev) => (prev + 1) % resultImages.length);
+  };
+
+  const prevImage = () => {
+    setCurrentImage((prev) => (prev - 1 + resultImages.length) % resultImages.length);
+  };
   return <div className="min-h-screen bg-background">
       {/* Header */}
       <header className="py-4 px-4 border-b border-border/50 sticky top-0 bg-background/95 backdrop-blur z-10">
@@ -141,7 +146,7 @@ export const SalesPage = ({
           </div>
         </section>
 
-        {/* Testimonials */}
+        {/* Results Carousel */}
         <section className="px-4 py-8">
           <div className="container max-w-md mx-auto">
             <motion.h2 initial={{
@@ -156,51 +161,57 @@ export const SalesPage = ({
               Resultados dos Alunos
             </motion.h2>
 
-            <div className="space-y-4">
-              {testimonials.map((testimonial, index) => <motion.div key={index} initial={{
-              opacity: 0,
-              y: 20
-            }} whileInView={{
-              opacity: 1,
-              y: 0
-            }} viewport={{
-              once: true
-            }} transition={{
-              delay: index * 0.1
-            }} className="bg-card rounded-2xl p-4 shadow-soft">
-                  <div className="flex items-start gap-3">
-                    <div className="w-10 h-10 bg-success/20 rounded-full flex items-center justify-center flex-shrink-0">
-                      <MessageCircle className="w-5 h-5 text-success" />
-                    </div>
-                    <div className="flex-1">
-                      <div className="flex items-center justify-between mb-1">
-                        <span className="font-semibold text-foreground">{testimonial.name}</span>
-                        <span className="text-xs bg-success/10 text-success px-2 py-1 rounded-full font-medium">
-                          {testimonial.revenue}
-                        </span>
-                      </div>
-                      <p className="text-muted-foreground text-sm">{testimonial.message}</p>
-                    </div>
-                  </div>
-                </motion.div>)}
-            </div>
-
-            {/* Rating */}
-            <motion.div initial={{
-            opacity: 0,
-            y: 20
-          }} whileInView={{
-            opacity: 1,
-            y: 0
-          }} viewport={{
-            once: true
-          }} className="mt-6 text-center">
-              <div className="flex items-center justify-center gap-1 mb-2">
-                {[1, 2, 3, 4, 5].map(star => <Star key={star} className="w-6 h-6 text-warning" fill="currentColor" />)}
+            <motion.div 
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              className="relative bg-card rounded-2xl p-4 shadow-soft"
+            >
+              <div className="relative overflow-hidden rounded-xl">
+                <motion.img
+                  key={currentImage}
+                  src={resultImages[currentImage]}
+                  alt={`Resultado de aluno ${currentImage + 1}`}
+                  className="w-full h-auto rounded-xl"
+                  initial={{ opacity: 0, x: 100 }}
+                  animate={{ opacity: 1, x: 0 }}
+                  exit={{ opacity: 0, x: -100 }}
+                  transition={{ duration: 0.3 }}
+                />
               </div>
-              <p className="text-sm text-muted-foreground">
-                Avaliação <strong className="text-foreground">4.9/5</strong> baseada em 847 reviews
-              </p>
+              
+              {/* Navigation */}
+              <div className="flex items-center justify-between mt-4">
+                <Button
+                  variant="outline"
+                  size="icon"
+                  onClick={prevImage}
+                  className="rounded-full"
+                >
+                  <ChevronLeft className="w-5 h-5" />
+                </Button>
+                
+                <div className="flex gap-2">
+                  {resultImages.map((_, index) => (
+                    <button
+                      key={index}
+                      onClick={() => setCurrentImage(index)}
+                      className={`w-2 h-2 rounded-full transition-colors ${
+                        index === currentImage ? 'bg-primary' : 'bg-muted'
+                      }`}
+                    />
+                  ))}
+                </div>
+                
+                <Button
+                  variant="outline"
+                  size="icon"
+                  onClick={nextImage}
+                  className="rounded-full"
+                >
+                  <ChevronRight className="w-5 h-5" />
+                </Button>
+              </div>
             </motion.div>
           </div>
         </section>
