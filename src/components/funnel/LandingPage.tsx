@@ -64,7 +64,7 @@ export const LandingPage = ({
           duration: 0.5,
           delay: 0.2
         }} className="text-muted-foreground text-base sm:text-lg px-2">
-            Descubra o <strong className="font-bold text-slate-950">Método russo</strong> e aprenda a vender na GGMAX de forma profissional, com fornecedores validados e suporte completo.
+            Descubra o <strong className="font-bold text-slate-950">Método russo</strong>  que te ensina a vender na GGMAX de forma profissional, com fornecedores validados e estratégias exclusivas.   
           </motion.p>
 
           {/* Features */}
