@@ -91,10 +91,16 @@ export const SalesPage = ({
                 O que é o Método GGMAX?
               </h2>
               <p className="text-muted-foreground">
-                É o <strong className="text-foreground">Método Russo</strong> adaptado para o Brasil. Uma estratégia comprovada de compra e venda de contas de jogos que permite faturar de R$ 3.000 a R$ 15.000 por mês trabalhando apenas pelo celular.
+                É o <strong className="text-foreground">Método Russo</strong> adaptado para o Brasil. Um método criado para ajudar qualquer pessoa a vender com eficiência dentro da GGMAX que permite faturar de R$ 2.000 a R$ 10.000 por mês trabalhando apenas pelo celular.
               </p>
               <p className="text-muted-foreground">
-                Com o <strong className="text-foreground">Método GGMAX</strong>, você recebe acesso a fornecedores secretos, contas verificadas e todo o suporte para começar a vender hoje mesmo.
+                Com o <strong className="text-foreground">Método GGMAX</strong>, você recebe acesso a fornecedores secretos, contas verificadas, aprende na prática a montar anúncios completos e muito mais. O objetivo do método é simplificar todo o processo de vender na GGMAX com estratégias testadas e comprovadas, permitindo que qualquer pessoa alcance resultados reais mesmo começando do zero.    
+
+
+ 
+
+
+
               </p>
             </motion.div>
           </div>
