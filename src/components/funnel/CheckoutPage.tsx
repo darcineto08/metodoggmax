@@ -49,29 +49,8 @@ export const CheckoutPage = () => {
       description: "Você será direcionado para finalizar sua compra."
     });
   };
-  const basicBenefits = [
-    "Acesso imediato a 35 fornecedores",
-    "12 fornecedores de Roblox / moedas digitais",
-    "12 gift cards & keys internacionais",
-    "6 fornecedores BR confiáveis",
-    "5 fornecedores de contas / streaming / serviços digitais",
-    "Suporte básico inicial por 7 dias"
-  ];
-
-  const completeBenefits = [
-    "Método Russo incluso",
-    "Tudo do Plano Fornecedores Iniciais incluso",
-    "69 fornecedores exclusivos validados (Roblox, Gift Cards, Keys Premium, Fornecedores BR & internacionais)",
-    "Pacote essencial de templates (anúncios, mensagens, pós-venda)",
-    "Roteiros curtos para vídeos simples (exemplo prático)",
-    "Introdução & segurança",
-    "Montagem de ofertas, preços e títulos que convertem",
-    "Criação e otimização de anúncios com exemplos reais",
-    "Captação e validação de contas (TikTok, Instagram, Roblox)",
-    "Técnicas de bundles, upsells e aumento de ticket médio",
-    "Como usar streaming para multiplicar vendas",
-    "Pós-venda, retenção e mensagens profissionais"
-  ];
+  const basicBenefits = ["Acesso imediato a 35 fornecedores", "12 fornecedores de Roblox / moedas digitais", "12 gift cards & keys internacionais", "6 fornecedores BR confiáveis", "5 fornecedores de contas / streaming / serviços digitais", "Suporte básico inicial por 7 dias"];
+  const completeBenefits = ["Método Russo incluso", "Tudo do Plano Fornecedores Iniciais incluso", "69 fornecedores exclusivos validados (Roblox, Gift Cards, Keys Premium, Fornecedores BR & internacionais)", "Pacote essencial de templates (anúncios, mensagens, pós-venda)", "Roteiros curtos para vídeos simples (exemplo prático)", "Introdução & segurança", "Montagem de ofertas, preços e títulos que convertem", "Criação e otimização de anúncios com exemplos reais", "Captação e validação de contas (TikTok, Instagram, Roblox)", "Técnicas de bundles, upsells e aumento de ticket médio", "Como usar streaming para multiplicar vendas", "Pós-venda, retenção e mensagens profissionais"];
   return <div className="min-h-screen bg-background pb-32">
       <FunnelHeader />
 
@@ -127,19 +106,17 @@ export const CheckoutPage = () => {
               <div className="flex items-start justify-between mb-3">
                 <div>
                   <h3 className="font-bold text-foreground">Fornecedores Iniciais</h3>
-                  <p className="text-sm text-muted-foreground">Lista básica para começar</p>
+                  <p className="text-sm text-muted-foreground">Entrada rápida para testar fornecedores validados com baixo investimento.</p>
                 </div>
                 <div className="text-right">
                   <p className="text-2xl font-extrabold text-foreground">R$ 9,90</p>
                 </div>
               </div>
               <ul className="space-y-2 text-sm">
-                {basicBenefits.map((benefit, index) => (
-                  <li key={index} className="flex items-start gap-2 text-muted-foreground">
+                {basicBenefits.map((benefit, index) => <li key={index} className="flex items-start gap-2 text-muted-foreground">
                     <Check className="w-4 h-4 text-success flex-shrink-0 mt-0.5" />
                     {benefit}
-                  </li>
-                ))}
+                  </li>)}
               </ul>
             </motion.div>
 
@@ -172,12 +149,10 @@ export const CheckoutPage = () => {
               </div>
 
               <ul className="space-y-2 text-sm">
-                {completeBenefits.map((benefit, index) => (
-                  <li key={index} className="flex items-start gap-2 text-foreground">
+                {completeBenefits.map((benefit, index) => <li key={index} className="flex items-start gap-2 text-foreground">
                     <Check className="w-4 h-4 text-success flex-shrink-0 mt-0.5" />
                     {benefit}
-                  </li>
-                ))}
+                  </li>)}
               </ul>
             </motion.div>
           </div>
