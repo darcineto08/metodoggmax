@@ -105,8 +105,8 @@ export const CheckoutPage = () => {
           }} onClick={() => setSelectedPlan("basic")} className={`bg-card rounded-2xl p-5 cursor-pointer transition-all border-2 ${selectedPlan === "basic" ? "border-primary shadow-glow" : "border-border hover:border-primary/50"}`}>
               <div className="flex items-start justify-between mb-3">
                 <div>
-                  <h3 className="font-bold text-foreground">Fornecedores Iniciais</h3>
-                  <p className="text-sm text-muted-foreground">Entrada rápida para testar fornecedores validados com baixo investimento.</p>
+                  <h3 className="font-bold text-foreground text-lg">Fornecedores Iniciais</h3>
+                  <p className="text-sm text-muted-foreground text-left">Entrada rápida para testar fornecedores validados com baixo investimento.</p>
                 </div>
                 <div className="text-right">
                   <p className="text-2xl font-extrabold text-foreground">R$ 9,90</p>
