@@ -106,7 +106,7 @@ export const CheckoutPage = () => {
               <div className="flex items-start justify-between mb-3">
                 <div>
                   <h3 className="font-bold text-foreground text-lg">Fornecedores Iniciais</h3>
-                  <p className="text-sm text-muted-foreground text-left">Entrada rápida para testar fornecedores validados com baixo investimento.</p>
+                  <p className="text-sm text-muted-foreground text-left">​</p>
                 </div>
                 <div className="text-right">
                   <p className="text-2xl font-extrabold text-foreground">R$ 9,90</p>
