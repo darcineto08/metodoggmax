@@ -140,7 +140,7 @@ export const CheckoutPage = () => {
               <div className="flex items-start justify-between mb-3 pt-2">
                 <div>
                   <h3 className="font-bold text-foreground text-lg">Método GGMAX Completo</h3>
-                  <p className="text-sm text-muted-foreground">Para quem quer começar a vender e aprender rápido como usar fornecedores com segurança, módulos completos e estratégias para vender mais.
+                  <p className="text-sm text-muted-foreground"> ​
                 </p>
                 </div>
                 <div className="text-right">
