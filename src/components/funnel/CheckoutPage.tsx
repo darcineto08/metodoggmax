@@ -49,7 +49,29 @@ export const CheckoutPage = () => {
       description: "Você será direcionado para finalizar sua compra."
     });
   };
-  const completeBenefits = ["Acesso vitalício ao método completo", "+50 fornecedores validados", "Suporte 24h via WhatsApp", "Scripts de venda prontos", "Comunidade exclusiva", "Atualizações gratuitas", "Bônus: Planilha de controle"];
+  const basicBenefits = [
+    "Acesso imediato a 35 fornecedores",
+    "12 fornecedores de Roblox / moedas digitais",
+    "12 gift cards & keys internacionais",
+    "6 fornecedores BR confiáveis",
+    "5 fornecedores de contas / streaming / serviços digitais",
+    "Suporte básico inicial por 7 dias"
+  ];
+
+  const completeBenefits = [
+    "Método Russo incluso",
+    "Tudo do Plano Fornecedores Iniciais incluso",
+    "69 fornecedores exclusivos validados (Roblox, Gift Cards, Keys Premium, Fornecedores BR & internacionais)",
+    "Pacote essencial de templates (anúncios, mensagens, pós-venda)",
+    "Roteiros curtos para vídeos simples (exemplo prático)",
+    "Introdução & segurança",
+    "Montagem de ofertas, preços e títulos que convertem",
+    "Criação e otimização de anúncios com exemplos reais",
+    "Captação e validação de contas (TikTok, Instagram, Roblox)",
+    "Técnicas de bundles, upsells e aumento de ticket médio",
+    "Como usar streaming para multiplicar vendas",
+    "Pós-venda, retenção e mensagens profissionais"
+  ];
   return <div className="min-h-screen bg-background pb-32">
       <FunnelHeader />
 
@@ -112,14 +134,12 @@ export const CheckoutPage = () => {
                 </div>
               </div>
               <ul className="space-y-2 text-sm">
-                <li className="flex items-center gap-2 text-muted-foreground">
-                  <Check className="w-4 h-4 text-success" />
-                  10 fornecedores iniciais
-                </li>
-                <li className="flex items-center gap-2 text-muted-foreground">
-                  <Check className="w-4 h-4 text-success" />
-                  Acesso por 30 dias
-                </li>
+                {basicBenefits.map((benefit, index) => (
+                  <li key={index} className="flex items-start gap-2 text-muted-foreground">
+                    <Check className="w-4 h-4 text-success flex-shrink-0 mt-0.5" />
+                    {benefit}
+                  </li>
+                ))}
               </ul>
             </motion.div>
 
@@ -152,10 +172,12 @@ export const CheckoutPage = () => {
               </div>
 
               <ul className="space-y-2 text-sm">
-                {completeBenefits.map((benefit, index) => <li key={index} className="flex items-center gap-2 text-foreground">
-                    <Check className="w-4 h-4 text-success flex-shrink-0" />
+                {completeBenefits.map((benefit, index) => (
+                  <li key={index} className="flex items-start gap-2 text-foreground">
+                    <Check className="w-4 h-4 text-success flex-shrink-0 mt-0.5" />
                     {benefit}
-                  </li>)}
+                  </li>
+                ))}
               </ul>
             </motion.div>
           </div>
