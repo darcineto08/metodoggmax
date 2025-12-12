@@ -9,6 +9,7 @@ import { Label } from "@/components/ui/label";
 import { Progress } from "@/components/ui/progress";
 import { SuccessModal } from "./SuccessModal";
 import { QuizAnswers } from "./FunnelContainer";
+import { FunnelHeader } from "./FunnelHeader";
 
 interface QuizWizardProps {
   points: number;
@@ -143,8 +144,10 @@ export const QuizWizard = ({
 
   return (
     <div className="min-h-screen flex flex-col">
-      {/* Header */}
-      <header className="py-4 px-4 border-b border-border/50 sticky top-0 bg-background/95 backdrop-blur z-10">
+      <FunnelHeader />
+      
+      {/* Progress Header */}
+      <div className="py-3 px-4 border-b border-border/50 bg-background/95 backdrop-blur">
         <div className="container max-w-md mx-auto">
           <div className="flex items-center justify-between mb-3">
             <span className="text-sm font-medium text-muted-foreground">
@@ -157,7 +160,7 @@ export const QuizWizard = ({
           </div>
           <Progress value={progress} className="h-2" />
         </div>
-      </header>
+      </div>
 
       {/* Question */}
       <main className="flex-1 flex flex-col items-center justify-center px-4 py-8">
