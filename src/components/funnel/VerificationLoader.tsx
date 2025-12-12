@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { motion } from "framer-motion";
 import { Check, Loader2, Shield } from "lucide-react";
+import { FunnelHeader } from "./FunnelHeader";
 
 interface VerificationLoaderProps {
   onComplete: () => void;
@@ -50,8 +51,10 @@ export const VerificationLoader = ({ onComplete }: VerificationLoaderProps) => {
   }, [onComplete]);
 
   return (
-    <div className="min-h-screen flex flex-col items-center justify-center px-4 bg-background">
-      <div className="container max-w-md mx-auto text-center">
+    <div className="min-h-screen flex flex-col bg-background">
+      <FunnelHeader />
+      <div className="flex-1 flex flex-col items-center justify-center px-4">
+        <div className="container max-w-md mx-auto text-center">
         <motion.div
           initial={{ scale: 0 }}
           animate={{ scale: 1 }}
@@ -133,6 +136,7 @@ export const VerificationLoader = ({ onComplete }: VerificationLoaderProps) => {
             </motion.div>
           ))}
         </div>
+      </div>
       </div>
     </div>
   );

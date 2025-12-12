@@ -1,11 +1,12 @@
 import { motion } from "framer-motion";
 import { Star, Check, Users, Shield, Zap, Gift, ChevronLeft, ChevronRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import resultado1 from "@/assets/resultado1.png";
 import resultado2 from "@/assets/resultado2.png";
 import resultado3 from "@/assets/resultado3.png";
 import resultado4 from "@/assets/resultado4.png";
+import { FunnelHeader } from "./FunnelHeader";
 
 interface SalesPageProps {
   points: number;
@@ -43,17 +44,27 @@ export const SalesPage = ({
   const prevImage = () => {
     setCurrentImage((prev) => (prev - 1 + resultImages.length) % resultImages.length);
   };
+
+  // Autoplay carousel
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setCurrentImage((prev) => (prev + 1) % resultImages.length);
+    }, 3000);
+    return () => clearInterval(interval);
+  }, []);
+
   return <div className="min-h-screen bg-background">
-      {/* Header */}
-      <header className="py-4 px-4 border-b border-border/50 sticky top-0 bg-background/95 backdrop-blur z-10">
-        <div className="container max-w-md mx-auto flex items-end justify-between">
-          
-          <div className="gap-1 bg-warning/10 px-3 py-1 rounded-full flex items-center justify-start">
+      <FunnelHeader />
+      
+      {/* Points Badge */}
+      <div className="py-2 px-4 bg-background/95 backdrop-blur border-b border-border/50">
+        <div className="container max-w-md mx-auto flex justify-end">
+          <div className="gap-1 bg-warning/10 px-3 py-1 rounded-full flex items-center">
             <Star className="w-4 h-4 text-warning" fill="currentColor" />
             <span className="text-sm font-bold text-warning">{points} GG Points</span>
           </div>
         </div>
-      </header>
+      </div>
 
       <main className="pb-32">
         {/* Hero Section */}

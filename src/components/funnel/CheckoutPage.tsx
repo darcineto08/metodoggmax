@@ -3,6 +3,7 @@ import { motion } from "framer-motion";
 import { Star, Check, Shield, Clock, CreditCard, Zap } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { toast } from "@/hooks/use-toast";
+import { FunnelHeader } from "./FunnelHeader";
 export const CheckoutPage = () => {
   const [timeLeft, setTimeLeft] = useState({
     hours: 0,
@@ -50,8 +51,7 @@ export const CheckoutPage = () => {
   };
   const completeBenefits = ["Acesso vitalício ao método completo", "+50 fornecedores validados", "Suporte 24h via WhatsApp", "Scripts de venda prontos", "Comunidade exclusiva", "Atualizações gratuitas", "Bônus: Planilha de controle"];
   return <div className="min-h-screen bg-background pb-32">
-      {/* Header */}
-      
+      <FunnelHeader />
 
       <main className="px-4 py-6">
         <div className="container max-w-md mx-auto space-y-6">
