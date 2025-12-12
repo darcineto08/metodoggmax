@@ -178,13 +178,25 @@ export const SalesPage = ({
               viewport={{ once: true }}
               className="relative bg-card rounded-2xl p-4 shadow-soft"
             >
-              <div className="relative overflow-hidden rounded-xl">
+              <motion.div 
+                className="relative overflow-hidden rounded-xl cursor-grab active:cursor-grabbing"
+                drag="x"
+                dragConstraints={{ left: 0, right: 0 }}
+                dragElastic={0.2}
+                onDragEnd={(_, info) => {
+                  if (info.offset.x > 50) {
+                    prevImage();
+                  } else if (info.offset.x < -50) {
+                    nextImage();
+                  }
+                }}
+              >
                 <AnimatePresence mode="wait">
                   <motion.img
                     key={currentImage}
                     src={resultImages[currentImage]}
                     alt={`Resultado de aluno ${currentImage + 1}`}
-                    className="w-full h-auto rounded-xl"
+                    className="w-full h-auto rounded-xl pointer-events-none select-none"
                     initial={{ opacity: 0, scale: 0.95 }}
                     animate={{ opacity: 1, scale: 1 }}
                     exit={{ opacity: 0, scale: 1.05 }}
@@ -194,7 +206,7 @@ export const SalesPage = ({
                     }}
                   />
                 </AnimatePresence>
-              </div>
+              </motion.div>
               
               {/* Navigation */}
               <div className="flex items-center justify-between mt-4">
