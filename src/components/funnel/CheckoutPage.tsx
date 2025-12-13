@@ -2,8 +2,9 @@ import { useState, useEffect } from "react";
 import { motion } from "framer-motion";
 import { Star, Check, Shield, Clock, CreditCard, Zap } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import { toast } from "@/hooks/use-toast";
 import { FunnelHeader } from "./FunnelHeader";
+import { UpsellPage } from "./UpsellPage";
+
 export const CheckoutPage = () => {
   const [timeLeft, setTimeLeft] = useState({
     hours: 0,
@@ -11,6 +12,8 @@ export const CheckoutPage = () => {
     seconds: 0
   });
   const [selectedPlan, setSelectedPlan] = useState<"basic" | "complete">("complete");
+  const [showUpsell, setShowUpsell] = useState(false);
+  
   useEffect(() => {
     const timer = setInterval(() => {
       setTimeLeft(prev => {
@@ -44,12 +47,26 @@ export const CheckoutPage = () => {
     year: "numeric"
   });
   const handlePurchase = () => {
-    const paymentUrl = selectedPlan === "complete" 
-      ? "https://pay.cakto.com.br/xsxdumj_686528"
-      : "https://pay.cakto.com.br/sketvf8_686863";
-    
-    window.open(paymentUrl, "_blank");
+    if (selectedPlan === "basic") {
+      setShowUpsell(true);
+      return;
+    }
+    window.open("https://pay.cakto.com.br/xsxdumj_686528", "_blank");
   };
+
+  const handleUpsellAccept = () => {
+    // Link especial para a oferta de R$ 39,90 - usando o mesmo link do completo por enquanto
+    // Você pode trocar por um link específico para essa oferta
+    window.open("https://pay.cakto.com.br/xsxdumj_686528", "_blank");
+  };
+
+  const handleUpsellDecline = () => {
+    window.open("https://pay.cakto.com.br/sketvf8_686863", "_blank");
+  };
+
+  if (showUpsell) {
+    return <UpsellPage onAccept={handleUpsellAccept} onDecline={handleUpsellDecline} />;
+  }
   const basicBenefits = ["Acesso imediato a 35 fornecedores", "12 fornecedores de Roblox / moedas digitais", "12 gift cards & keys internacionais", "6 fornecedores BR confiáveis", "5 fornecedores de contas / streaming / serviços digitais", "Suporte básico inicial por 7 dias"];
   const completeBenefits = ["Método Russo incluso", "Tudo do Plano Fornecedores Iniciais incluso", "69 fornecedores exclusivos validados (Roblox, Gift Cards, Keys Premium, Fornecedores BR & internacionais)", "Pacote essencial de templates (anúncios, mensagens, pós-venda)", "Roteiros curtos para vídeos simples (exemplo prático)", "Introdução & segurança", "Montagem de ofertas, preços e títulos que convertem", "Criação e otimização de anúncios com exemplos reais", "Captação e validação de contas (TikTok, Instagram, Roblox)", "Técnicas de bundles, upsells e aumento de ticket médio", "Como usar streaming para multiplicar vendas", "Pós-venda, retenção e mensagens profissionais"];
   return <div className="min-h-screen bg-background pb-32">
