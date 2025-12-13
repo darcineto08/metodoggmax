@@ -11,7 +11,6 @@ export const CheckoutPage = () => {
     minutes: 10,
     seconds: 0
   });
-  const [selectedPlan, setSelectedPlan] = useState<"basic" | "complete">("complete");
   const [showUpsell, setShowUpsell] = useState(false);
   
   useEffect(() => {
@@ -46,11 +45,11 @@ export const CheckoutPage = () => {
     month: "2-digit",
     year: "numeric"
   });
-  const handlePurchase = () => {
-    if (selectedPlan === "basic") {
-      setShowUpsell(true);
-      return;
-    }
+  const handleBasicPurchase = () => {
+    setShowUpsell(true);
+  };
+
+  const handleCompletePurchase = () => {
     window.open("https://pay.cakto.com.br/xsxdumj_686528", "_blank");
   };
 
@@ -118,22 +117,24 @@ export const CheckoutPage = () => {
             y: 0
           }} transition={{
             delay: 0.1
-          }} onClick={() => setSelectedPlan("basic")} className={`bg-card rounded-2xl p-5 cursor-pointer transition-all border-2 ${selectedPlan === "basic" ? "border-primary shadow-glow" : "border-border hover:border-primary/50"}`}>
+          }} className="bg-card rounded-2xl p-5 border-2 border-border">
               <div className="flex items-start justify-between mb-3">
                 <div>
                   <h3 className="font-bold text-foreground text-lg">Fornecedores Iniciais</h3>
-                  <p className="text-sm text-muted-foreground text-left">​</p>
                 </div>
                 <div className="text-right">
                   <p className="text-2xl font-extrabold text-foreground">R$ 9,90</p>
                 </div>
               </div>
-              <ul className="space-y-2 text-sm">
+              <ul className="space-y-2 text-sm mb-4">
                 {basicBenefits.map((benefit, index) => <li key={index} className="flex items-start gap-2 text-muted-foreground">
                     <Check className="w-4 h-4 text-success flex-shrink-0 mt-0.5" />
                     {benefit}
                   </li>)}
               </ul>
+              <Button onClick={handleBasicPurchase} variant="outline" size="lg" className="w-full py-5 font-bold rounded-xl">
+                GARANTIR POR R$ 9,90
+              </Button>
             </motion.div>
 
             {/* Complete Plan */}
@@ -145,7 +146,7 @@ export const CheckoutPage = () => {
             y: 0
           }} transition={{
             delay: 0.2
-          }} onClick={() => setSelectedPlan("complete")} className={`relative bg-card rounded-2xl p-5 cursor-pointer transition-all border-2 ${selectedPlan === "complete" ? "border-primary shadow-glow" : "border-border hover:border-primary/50"}`}>
+          }} className="relative bg-card rounded-2xl p-5 border-2 border-primary shadow-glow">
               {/* Badge */}
               <div className="absolute -top-3 left-1/2 -translate-x-1/2">
                 <span className="bg-success text-success-foreground text-xs font-bold px-3 py-1 rounded-full">
@@ -156,8 +157,6 @@ export const CheckoutPage = () => {
               <div className="flex items-start justify-between mb-3 pt-2">
                 <div>
                   <h3 className="font-bold text-foreground text-lg">Método GGMAX Completo</h3>
-                  <p className="text-sm text-muted-foreground"> ​
-                </p>
                 </div>
                 <div className="text-right">
                   <p className="text-sm text-muted-foreground line-through">R$ 149,90</p>
@@ -165,12 +164,17 @@ export const CheckoutPage = () => {
                 </div>
               </div>
 
-              <ul className="space-y-2 text-sm">
+              <ul className="space-y-2 text-sm mb-4">
                 {completeBenefits.map((benefit, index) => <li key={index} className="flex items-start gap-2 text-foreground">
                     <Check className="w-4 h-4 text-success flex-shrink-0 mt-0.5" />
                     {benefit}
                   </li>)}
               </ul>
+              
+              <Button onClick={handleCompletePurchase} size="lg" className="w-full py-5 font-bold rounded-xl shadow-glow">
+                <Zap className="w-5 h-5 mr-2" />
+                GARANTIR POR R$ 49,90
+              </Button>
             </motion.div>
           </div>
 
@@ -202,15 +206,11 @@ export const CheckoutPage = () => {
         </div>
       </main>
 
-      {/* Sticky CTA */}
+      {/* Trust Footer */}
       <div className="fixed bottom-0 left-0 right-0 bg-background/95 backdrop-blur border-t border-border p-4 z-20">
         <div className="container max-w-md mx-auto">
-          <Button onClick={handlePurchase} size="lg" className="w-full py-6 text-lg font-bold rounded-xl shadow-glow">
-            <Zap className="w-5 h-5 mr-2" />
-            {selectedPlan === "complete" ? "GARANTIR POR R$ 49,90" : "GARANTIR POR R$ 9,90"}
-          </Button>
-          <p className="text-xs text-muted-foreground text-center mt-2">
-            Pagamento único • Acesso imediato
+          <p className="text-xs text-muted-foreground text-center">
+            Pagamento único • Acesso imediato • Compra 100% segura
           </p>
         </div>
       </div>
