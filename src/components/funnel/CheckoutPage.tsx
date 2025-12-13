@@ -44,10 +44,11 @@ export const CheckoutPage = () => {
     year: "numeric"
   });
   const handlePurchase = () => {
-    toast({
-      title: "Redirecionando para pagamento...",
-      description: "Você será direcionado para finalizar sua compra."
-    });
+    const paymentUrl = selectedPlan === "complete" 
+      ? "https://pay.cakto.com.br/xsxdumj_686528"
+      : "https://pay.cakto.com.br/sketvf8_686863";
+    
+    window.open(paymentUrl, "_blank");
   };
   const basicBenefits = ["Acesso imediato a 35 fornecedores", "12 fornecedores de Roblox / moedas digitais", "12 gift cards & keys internacionais", "6 fornecedores BR confiáveis", "5 fornecedores de contas / streaming / serviços digitais", "Suporte básico inicial por 7 dias"];
   const completeBenefits = ["Método Russo incluso", "Tudo do Plano Fornecedores Iniciais incluso", "69 fornecedores exclusivos validados (Roblox, Gift Cards, Keys Premium, Fornecedores BR & internacionais)", "Pacote essencial de templates (anúncios, mensagens, pós-venda)", "Roteiros curtos para vídeos simples (exemplo prático)", "Introdução & segurança", "Montagem de ofertas, preços e títulos que convertem", "Criação e otimização de anúncios com exemplos reais", "Captação e validação de contas (TikTok, Instagram, Roblox)", "Técnicas de bundles, upsells e aumento de ticket médio", "Como usar streaming para multiplicar vendas", "Pós-venda, retenção e mensagens profissionais"];
