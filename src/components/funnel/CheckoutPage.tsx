@@ -55,9 +55,7 @@ export const CheckoutPage = () => {
   };
 
   const handleUpsellAccept = () => {
-    // Link especial para a oferta de R$ 39,90 - usando o mesmo link do completo por enquanto
-    // Você pode trocar por um link específico para essa oferta
-    window.open("https://pay.cakto.com.br/xsxdumj_686528", "_blank");
+    window.open("https://pay.cakto.com.br/hyrtfay", "_blank");
   };
 
   const handleUpsellDecline = () => {
